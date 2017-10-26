@@ -83,18 +83,34 @@ LyngkTestCase.prototype.testHistoire11 = function()
 
 LyngkTestCase.prototype.testHistoire12 = function()
 {
-    var engine = new Lyngk.Engine();
-    var flag = true;
-    engine.initOnePiece();
-    var colornumber = engine.initEveryColor();
+    var plateau = new Lyngk.Engine();
+    var test = true;
+    var nbcolor = plateau.initEveryColor();
+    plateau.initOnePiece();
 
-    for(var i = 0 ; i < colornumber.length ; i++)
+    for(var i = 0 ; i < nbcolor.length ; i++)
     {
-        if(i <= 4 && colornumber[i] != 8)
-            flag = false;
-        else if(i == 5 && colornumber[i] != 3)
-            flag = false;
+        if(i <= 4 && nbcolor[i] > 0)
+            test = false;
+        else if(i === 5 && nbcolor[i] > 0)
+            test = false;
     }
 
-    assertTrue(flag);
+    assertTrue(test);
+}
+
+LyngkTestCase.prototype.testHistoire13 = function()
+{
+    var plateau = new Lyngk.Engine();
+    plateau.initOnePiece();
+    var taillePlateau = plateau.getTailleBoard();
+    var test = true;
+
+    for(var i in taillePlateau)
+    {
+        if(plateau[i].getTaillePile() !== 1)
+            test = false;
+    }
+
+    assertTrue(test);
 }
