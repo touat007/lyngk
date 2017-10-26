@@ -47,30 +47,30 @@ LyngkTestCase.prototype.testHistoire7 = function()
 LyngkTestCase.prototype.testHistoire8 = function()
 {
     var intersection = new Lyngk.Intersection();
-    intersection.pose("bleu");
+    intersection.pose(Lyngk.Color.BLUE);
 
-    assertTrue(intersection.getState() === Lyngk.State.ONE_PIECE && intersection.color() === "bleu");
+    assertTrue(intersection.getState() === Lyngk.State.ONE_PIECE && intersection.color() === Lyngk.Color.BLUE);
 }
 
 LyngkTestCase.prototype.testHistoire9 = function()
 {
     var intersection = new Lyngk.Intersection();
-    intersection.pose("bleu");
-    intersection.pose("rouge");
+    intersection.pose(Lyngk.Color.BLUE);
+    intersection.pose(Lyngk.Color.RED);
 
-    assertTrue(intersection.getState() === Lyngk.State.STACK && intersection.color() === "rouge");
+    assertTrue(intersection.getState() === Lyngk.State.STACK && intersection.color() === Lyngk.Color.RED);
 }
 
 LyngkTestCase.prototype.testHistoire10 = function()
 {
     var intersection = new Lyngk.Intersection();
-    intersection.pose("bleu");
-    intersection.pose("rouge");
-    intersection.pose("jaune");
-    intersection.pose("vert");
-    intersection.pose("noir");
+    intersection.pose(Lyngk.Color.BLUE);
+    intersection.pose(Lyngk.Color.RED);
+    intersection.pose(Lyngk.Color.IVORY);
+    intersection.pose(Lyngk.Color.GREEN);
+    intersection.pose(Lyngk.Color.BLACK);
 
-    assertTrue(intersection.getState() === Lyngk.State.FULL_STACK && intersection.color() === "noir");
+    assertTrue(intersection.getState() === Lyngk.State.FULL_STACK && intersection.color() === Lyngk.Color.BLACK);
 }
 
 LyngkTestCase.prototype.testHistoire11 = function()
@@ -113,4 +113,18 @@ LyngkTestCase.prototype.testHistoire13 = function()
     }
 
     assertTrue(test);
+}
+
+LyngkTestCase.prototype.testHistoire14 = function()
+{
+    var intersection = new Lyngk.Intersection();
+    intersection.pose(Lyngk.Color.BLUE);
+    intersection.pose(Lyngk.Color.RED);
+
+    assertTrue(intersection.color() === Lyngk.Color.RED);
+}
+
+LyngkTestCase.prototype.testHistoire15 = function()
+{
+    
 }
