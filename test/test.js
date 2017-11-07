@@ -126,5 +126,6 @@ LyngkTestCase.prototype.testHistoire14 = function()
 
 LyngkTestCase.prototype.testHistoire15 = function()
 {
-    
+    // utiliser pop pour retirer le dernier element de la liste
+    // Ajout d'un commentaire pour tester le commit
 }
