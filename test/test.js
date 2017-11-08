@@ -126,7 +126,6 @@ LyngkTestCase.prototype.testHistoire14 = function()
 
 LyngkTestCase.prototype.testHistoire15 = function()
 {
-    // utiliser pop pour retirer le dernier element de la liste
     var plateau = new Lyngk.Engine();
     plateau.initOnePiece();
     var board = plateau.getBoard();
@@ -136,3 +135,18 @@ LyngkTestCase.prototype.testHistoire15 = function()
 
     assertTrue(board["A3"].getState() === Lyngk.State.VACANT && A3color === B3color && board["B3"].getTaillePile() === 2);
 }
+
+LyngkTestCase.prototype.testHistoire16 = function()
+{
+    var plateau = new Lyngk.Engine();
+    plateau.initOnePiece();
+    var board = plateau.getBoard();
+    var A3color = board["A3"].color();
+    plateau.move("A3", "B3");
+    var B3color = board["B3"].color();
+    plateau.move("B3", "B2");
+    var B2color = board["B2"].color();
+
+    assertTrue(board["B3"].getState() === Lyngk.State.VACANT && A3color === B2color && B3color === B2color && board["B2"].getTaillePile() === 3);
+}
+
