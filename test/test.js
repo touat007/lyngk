@@ -150,3 +150,15 @@ LyngkTestCase.prototype.testHistoire16 = function()
     assertTrue(board["B3"].getState() === Lyngk.State.VACANT && A3color === B2color && B3color === B2color && board["B2"].getTaillePile() === 3);
 }
 
+LyngkTestCase.prototype.testHistoire17() = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initOnePiece();
+    var board = plateau.getBoard();
+    var B2color = board["B2"].color();
+    plateau.move("B2", "B3");
+    var B3color = board["B3"].color();
+
+    plateau.move("B3", "B2");
+
+    assertTrue(board["B2"].getState() === Lyngk.State.VACANT && B2color === B3color);
+}
