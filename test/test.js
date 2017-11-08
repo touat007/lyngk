@@ -163,3 +163,6 @@ LyngkTestCase.prototype.testHistoire17 = function () {
     assertTrue(board["B2"].getState() === Lyngk.State.VACANT && B2color === B3color);
 }
 
+LyngkTestCase.prototype.testHistoire18 = function (){
+    // creer un validMove().
+}
