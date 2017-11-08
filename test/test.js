@@ -15,7 +15,7 @@ LyngkTestCase.prototype.testHistoire2 = function() {
 LyngkTestCase.prototype.testHistoire3 = function() {
   var coordinates = new Lyngk.Coordinates('A', 3);
 
-  assertTrue(coordinates.toString() === 'A3');
+  assertTrue(coordinates.toString() === "A3");
 }
 
 LyngkTestCase.prototype.testHistoire4 = function() {
@@ -127,5 +127,12 @@ LyngkTestCase.prototype.testHistoire14 = function()
 LyngkTestCase.prototype.testHistoire15 = function()
 {
     // utiliser pop pour retirer le dernier element de la liste
-    // Ajout d'un commentaire pour tester le commit
+    var plateau = new Lyngk.Engine();
+    plateau.initOnePiece();
+    var board = plateau.getBoard();
+    var A3color = board["A3"].color();
+    plateau.move("A3", "B3");
+    var B3color = board["B3"].color();
+
+    assertTrue(board["A3"].getState() === Lyngk.State.VACANT && A3color === B3color && board["B3"].getTaillePile() === 2);
 }
